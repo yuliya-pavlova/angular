@@ -11,10 +11,10 @@ export class HttpService{
 
   getUsers(): Observable<User[]> {
     return this.http.get('assets/users.json').pipe(map(data => {
-      const usersList = data['userList"'];
+      const usersList = data['userList'];
       // tslint:disable-next-line:only-arrow-functions
       return usersList.map(function(user: any) {
-        return {name: user.userName, age: user.userAge};
+        return {name: user.name, surname: user.surname, fullname: user.name + ' ' + user.surname};
       });
     }));
   }
